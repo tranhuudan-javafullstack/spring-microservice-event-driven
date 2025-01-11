@@ -130,7 +130,7 @@ public interface IAccountsService {
 ```java
 package com.eazybytes.accounts;
 
-import com.eazybytes.accounts.command.interceptor.AccountsCommandInterceptor;
+import interceptor.command.com.huudan.accounts.AccountsCommandInterceptor;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.config.EventProcessingConfigurer;
 import org.axonframework.eventhandling.PropagatingErrorHandler;

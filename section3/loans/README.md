@@ -136,7 +136,7 @@ public ResponseEntity<ErrorResponseDto> handleGlobalException(CommandExecutionEx
 ```java
 package com.eazybytes.loans;
 
-import com.eazybytes.loans.command.interceptor.LoanCommandInterceptor;
+import interceptor.command.com.huudan.loans.LoanCommandInterceptor;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.config.EventProcessingConfigurer;
 import org.axonframework.eventhandling.PropagatingErrorHandler;
@@ -150,20 +150,20 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl")
 public class LoansApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(LoansApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(LoansApplication.class, args);
+    }
 
-  @Autowired
-  public void registerCustomerCommandInterceptor(ApplicationContext context, CommandGateway commandGateway) {
-    commandGateway.registerDispatchInterceptor(context.getBean(LoanCommandInterceptor.class));
-  }
+    @Autowired
+    public void registerCustomerCommandInterceptor(ApplicationContext context, CommandGateway commandGateway) {
+        commandGateway.registerDispatchInterceptor(context.getBean(LoanCommandInterceptor.class));
+    }
 
-  @Autowired
-  public void configure(EventProcessingConfigurer config) {
-    config.registerListenerInvocationErrorHandler("customer-group",
-            conf -> PropagatingErrorHandler.instance());
-  }
+    @Autowired
+    public void configure(EventProcessingConfigurer config) {
+        config.registerListenerInvocationErrorHandler("customer-group",
+                conf -> PropagatingErrorHandler.instance());
+    }
 
 }
 

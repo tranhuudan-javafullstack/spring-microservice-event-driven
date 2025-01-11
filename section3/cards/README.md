@@ -139,7 +139,7 @@ public ResponseEntity<ErrorResponseDto> handleGlobalException(CommandExecutionEx
 ```java
 package com.eazybytes.cards;
 
-import com.eazybytes.cards.command.interceptor.CardCommandInterceptor;
+import interceptor.command.com.huudan.cards.CardCommandInterceptor;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.config.EventProcessingConfigurer;
 import org.axonframework.eventhandling.PropagatingErrorHandler;
